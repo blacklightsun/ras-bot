@@ -1,0 +1,59 @@
+Congratulations!
+I am trying to connect the CamJam EduKit 3 to a Raspberry Pico. The motor controller board is not designed to be connected directly to the Raspberry Pico board, so I am connecting GPIO pins 7, 8, 9, 10 on the Raspberry Pico to the corresponding pins of the two-row connector on the motor controller board using a wired connection. It goes without saying that I have connected the motors and the power supply to the motor controller board.
+
+With
+
+the help of a multitester, I checked that the voltage on the connector for the motors' power supply is 5.3-5.5 V.
+
+I also checked that the pin of the two-row connector on the motor controller board, which corresponds to GPIO pins 7, 8, 9, 10, has a voltage of 3.3 V when I set the logic level high for the corresponding GPIO pin (pin8 = Pin(8, Pin.OUT); pin8.on();).
+
+I also checked that the motors rotate when they are connected to the battery (4 AA) directly.
+
+That is, the motor controller board is supplied with power to the motors, control signals from the controller, and the motors are connected.
+
+But when I run the Python script, the motors do not rotate.
+What am I doing wrong?
+
+Do I need to make a galvanic isolation by connecting Ground on the Raspberry Pico to Ground on the motor controller board?
+Do I need to connect any other pins on the Raspberry Pico and the motor controller board, except for 4 (7, 8, 9, 10)?
+Do I need to connect the power pins (3.3v / 5v) on the Raspberry Pico to the motor controller board?
+
+Here's my code for testing:
+
+from machine import Pin
+import time
+
+led = Pin("LED", Pin.OUT)
+pin7 = Pin(7, Pin.OUT)
+pin8 = Pin(8, Pin.OUT)
+pin9 = Pin(9, Pin.OUT)
+pin10 = Pin(10, Pin.OUT)
+
+led.on()
+pin7.off()
+pin8.off()
+pin9.off()
+pin10. off()
+time.sleep(5)
+led.off()
+time.sleep(5)
+
+led.on() 
+pin7.on()
+time.sleep(5)
+pin8.on()
+time.sleep(5)
+pin9.on()
+time.sleep(5)
+pin10.on()
+time.sleep(5)
+led.off()
+
+led.on()
+pin7.off()
+pin8.off() 
+pin9.off()
+pin10.off()
+time.sleep(5)
+led.off()
+time.sleep(5)

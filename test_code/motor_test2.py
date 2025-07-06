@@ -1,0 +1,38 @@
+from machine import Pin
+import time
+
+led = Pin("LED", Pin.OUT)
+#led = Pin(25, Pin.OUT)
+pin7 = Pin(7, Pin.OUT)
+pin8 = Pin(8, Pin.OUT)
+pin9 = Pin(9, Pin.OUT)
+pin10 = Pin(10, Pin.OUT)
+
+print("pins are going to switch off")
+led.on()
+pin7.off()
+pin8.off()
+pin9.off()
+pin10.off()
+time.sleep(5)
+led.off()
+time.sleep(5)
+print("pins are switched off")
+
+print("pins 7, 9 are switched on")
+led.on()
+pin7.on()
+pin9.on()
+time.sleep(30)
+led.off()
+
+print("pins are going to switch off")
+led.on()
+pin7.off()
+pin8.off()
+pin9.off()
+pin10.off()
+time.sleep(5)
+led.off()
+time.sleep(5)
+print("pins are switched off")
